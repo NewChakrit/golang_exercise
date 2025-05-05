@@ -17,6 +17,4 @@ func main() {
 	if x != 42 || y != 10 {
 		fmt.Println("x is not 42 & y is not 10")
 	}
-
-	//
 }
