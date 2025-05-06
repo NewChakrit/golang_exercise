@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+func init() {
+	fmt.Println("Let's start exercise 076!")
+}
+
 func main() {
 	x := rand.Intn(3)
 
