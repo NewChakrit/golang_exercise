@@ -9,4 +9,8 @@ func main() {
 	for _, v := range a {
 		fmt.Printf("value: %v \t type: %T\n", v, v)
 	}
+
+	fmt.Printf("%T \t %#v\n", a, a)
+	fmt.Printf("%T \t %v", a, a)
+
 }
