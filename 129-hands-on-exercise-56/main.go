@@ -2,70 +2,40 @@ package main
 
 import "fmt"
 
-type engine struct {
-	electric bool
-}
-
 func main() {
 
 	a := struct {
-		engine engine
-		make   int
-		model  string
-		doors  int
-		color  string
+		first     string
+		friends   map[string]int
+		favDrinks []string
 	}{
-		make:   1996,
-		model:  "Corrolado",
-		doors:  4,
-		color:  "black",
-		engine: engine{electric: false},
+		first: "New",
+		friends: map[string]int{
+			"Mark":  17,
+			"Carol": 16,
+			"Penny": 18,
+		},
+		favDrinks: []string{"Coke", "Est cola", "Mile", "Soy milk"},
 	}
 
-	b := struct {
-		engine engine
-		make   int
-		model  string
-		doors  int
-		color  string
-	}{
-		make:   2018,
-		model:  "Camry",
-		doors:  4,
-		color:  "Gray",
-		engine: engine{electric: true},
-	}
+	fmt.Println("My name is", a.first)
+	fmt.Println("These are list of my friends and their age.")
+	for k, v := range a.friends {
+		pronoun := "She"
 
-	fmt.Println(a)
-	fmt.Println(b)
-
-	e := map[string]bool{
-		"electric A": a.engine.electric,
-		"electric B": b.engine.electric,
-	}
-
-	fmt.Println("------------------")
-
-	fmt.Printf("Model of vahicle A is %v\n", a.model)
-	fmt.Printf("Vahicle A made in %v.\n", a.make)
-	fmt.Printf("Vahicle A have %v doors.\n", a.doors)
-	fmt.Printf("Color of vahicle A is %v.\n", a.color)
-	for k, v := range e {
-		if k == "electric B" {
-			break
+		if k == "Mark" {
+			pronoun = "He"
 		}
-		fmt.Printf("%v: %v\n", k, v)
+
+		fmt.Printf("%v, %v's %v years old.\n", k, pronoun, v)
 	}
 
-	fmt.Printf("Model of vahicle A is %v\n", a.model)
-	fmt.Printf("Vahicle A made in %v.\n", a.make)
-	fmt.Printf("Vahicle A have %v doors.\n", a.doors)
-	fmt.Printf("Color of vahicle A is %v.\n", a.color)
-	for k, v := range e {
-		if k == "electric A" {
-			continue
-		}
-		fmt.Printf("%v: %v\n", k, v)
+	fmt.Println("-------------------")
+
+	fmt.Println("These are list of ma fav drink.")
+	for i, v := range a.favDrinks {
+		i++
+		fmt.Printf("%v. %v\n", i, v)
 	}
 
 }
