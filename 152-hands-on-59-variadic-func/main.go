@@ -3,15 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(foo([]int{1, 2, 3, 4}))
+	x := []int{1, 2, 3, 4, 5, 6}
+
+	fmt.Println(foo(x...))
 }
 
-func foo(ii ...[]int) int {
+func foo(ii ...int) int {
 	sum := 0
 	for _, v := range ii {
-		for _, v2 := range v {
-			sum = sum + v2
-		}
+		sum += v
 	}
 
 	return sum
