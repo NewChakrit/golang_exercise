@@ -13,20 +13,21 @@ type person struct {
 }
 
 func main() {
-	users := `[{"First": "James", "Last": "Bond", "Age": 32, "Sayings": ["Shaken, not stirred", "You is no guarantee of innovation"]}]`
+	s := `[{"First":"Eem","Last":"Red","Age":29, "Sayings":["Hi", "HO", "HOO"]},{"First":"James","Last":"Bond","Age":68,"Sayings":["MI", "MO", "MOO"]}]`
 
 	var people []person
-	err := json.Unmarshal([]byte(users), &people)
+
+	err := json.Unmarshal([]byte(s), &people)
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println(err)
 	}
 
-	//fmt.Println(people)
+	fmt.Println(people)
 
 	for _, v := range people {
-		fmt.Printf("First: %v\nLast: %v\nAge: %v\n", v.First, v.Last, v.Age)
+		fmt.Printf("%v %v %v\n", v.First, v.Last, v.Age)
 		for _, vv := range v.Sayings {
-			fmt.Printf("Sayings: %v\n", vv)
+			fmt.Printf("\t%v\n", vv)
 		}
 	}
 }
