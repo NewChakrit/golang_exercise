@@ -1,41 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
+
+type User struct {
+	First string
+	Age   int
+}
 
 func main() {
+	p1 := User{"New", 28}
+	p2 := User{"Moneypenny", 27}
+	p3 := User{"M", 24}
 
-	subA1 := []string{"shaken, not strirred", "martinis", "fast cars"}
-	subA2 := []string{"intelligence", "literature", "computer science"}
-	subA3 := []string{"cats", "ice cream", "sunsets"}
+	users := []User{p1, p2, p3}
 
-	a := map[string][]string{
-		"bond_james":        subA1,
-		"moneypenny_jenney": subA2,
-		"no_dr":             subA3,
+	v, err := json.Marshal(users)
+	if err != nil {
+		fmt.Println("Error: ", err)
 	}
 
-	for k, v := range a {
-		fmt.Println("----------")
-		fmt.Printf("k: %v  v: %v\n", k, v)
+	fmt.Println(string(v))
 
-		for i, v2 := range v {
-			fmt.Printf("index: %v \t key: %v \t value: %v\n", i, k, v2)
-		}
-	}
+	os.Stdout.Write(v)
 
-	fmt.Println("===============================")
-
-	b := map[string][]string{}
-	b["bond_james"] = []string{"shaken, not strirred", "martinis", "fast cars"}
-	b["moneypenny_jenney"] = []string{"intelligence", "literature", "computer science"}
-	b["no_dr"] = []string{"cats", "ice cream", "sunsets"}
-
-	for k, v := range b {
-		fmt.Println("----------")
-		fmt.Printf("%v\n", k)
-
-		for i, v2 := range v {
-			fmt.Printf("%v  %v\n", i, v2)
-		}
+	for _, v := range users {
+		fmt.Printf("\n%v: %v", v.First, v.Age)
 	}
 }
