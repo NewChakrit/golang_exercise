@@ -19,5 +19,5 @@ func main() {
 		fmt.Println(k, <-c)
 	}
 
-	fmt.Println("about to exit.")
+	fmt.Println("about to exit..")
 }
