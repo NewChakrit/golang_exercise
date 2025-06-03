@@ -2,39 +2,32 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
+type sqrError struct {
+	lat  string
+	long string
+	err  error
+}
+
+func (se sqrError) Error() string {
+	return fmt.Sprintf("mat error: %v %v %v", se.lat, se.long, se.err)
+}
+
 func main() {
-	q := make(chan int)
-	c := gen(q)
-
-	receive(c, q)
-
-	fmt.Println("about to exit.")
-}
-
-func gen(q chan<- int) <-chan int {
-	c := make(chan int)
-
-	go func() {
-		for i := 0; i < 10; i++ {
-			c <- i
-		}
-		q <- 1
-		close(c)
-	}()
-
-	return c
-}
-
-func receive(c, q <-chan int) {
-	for {
-		select {
-		case v := <-c:
-			fmt.Println("from the quit channel: ", v)
-		case v := <-q:
-			fmt.Println("from the quit channel: ", v)
-			return
-		}
+	_, err := sqrt(-10.11)
+	if err != nil {
+		log.Println(err)
 	}
+}
+
+func sqrt(f float64) (float64, error) {
+	if f < 0 {
+		//e := errors.New("more coffee needed")
+		e := fmt.Errorf("more coffee needed - value was %v", f)
+		return 0, sqrError{"50.2289", "99.4656 W", e}
+	}
+
+	return 42, nil
 }
