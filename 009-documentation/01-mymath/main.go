@@ -21,3 +21,6 @@ func Sum(xi ...int) int {
 // two: go doc <sym>[.<method>]
 
 //ex go doc json.number
+
+// try cml:  godoc -http=:8080
+// will show document on browser http://localhost:8080/
