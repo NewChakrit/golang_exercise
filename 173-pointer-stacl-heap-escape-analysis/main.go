@@ -16,20 +16,20 @@ moved to heap
 variable moved to the heap
 */
 
-// ===== command: go run -gcflags -m main.go =====
+// ===== command: go run -gcflags -m acdc.go =====
 
 /* value : fmt.Println(a)
 # command-line-arguments
-./main.go:7:13: inlining call to fmt.Println
-./main.go:7:13: ... argument does not escape
-./main.go:7:14: a escapes to heap
+./acdc.go:7:13: inlining call to fmt.Println
+./acdc.go:7:13: ... argument does not escape
+./acdc.go:7:14: a escapes to heap
 1
 */
 
 /* value : fmt.Println(&a)
 # command-line-arguments
-./main.go:8:13: inlining call to fmt.Println
-./main.go:6:2: moved to heap: a
-./main.go:8:13: ... argument does not escape
+./acdc.go:8:13: inlining call to fmt.Println
+./acdc.go:6:2: moved to heap: a
+./acdc.go:8:13: ... argument does not escape
 0x14000104020
 */

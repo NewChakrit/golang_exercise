@@ -22,5 +22,5 @@ func main() {
 //log.Panicf({0x100d31b63?, 0xb?}, {0x1400007cf28?, 0x0?, 0x1400007cf38?})
 //        /opt/homebrew/opt/go/libexec/src/log/log.go:439 +0x64
 //main.main()
-//        /Users/a657002/Desktop/Learn/udemy/howtolearngo/golang_exercise/007-error-handilng/05-log-panic/main.go:11 +0x68
+//        /Users/a657002/Desktop/Learn/udemy/howtolearngo/golang_exercise/007-error-handilng/05-log-panic/acdc.go:11 +0x68
 //exit status 2

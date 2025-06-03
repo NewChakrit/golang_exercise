@@ -15,5 +15,5 @@ func main() {
 //
 //goroutine 1 [running]:
 //main.main()
-//        /Users/a657002/Desktop/Learn/udemy/howtolearngo/golang_exercise/007-error-handilng/06-panic/main.go:10 +0x50
+//        /Users/a657002/Desktop/Learn/udemy/howtolearngo/golang_exercise/007-error-handilng/06-panic/acdc.go:10 +0x50
 //exit status 2

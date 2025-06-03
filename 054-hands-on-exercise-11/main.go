@@ -7,7 +7,7 @@ func main() {
 }
 
 // Terminal
-// 1) go build main.go >> create main
+// 1) go build acdc.go >> create main
 // 2) ./main >> Hello World!
 // 3) rm main >> main has been removed
 // 4) go build . >> create 054...
