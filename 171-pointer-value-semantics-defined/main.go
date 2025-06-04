@@ -9,7 +9,7 @@ func addOne(v int) int {
 
 // pointer semantics
 func addOneP(v *int) {
-	*v += 1
+	*v++
 }
 
 func main() {

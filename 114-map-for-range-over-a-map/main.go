@@ -31,7 +31,7 @@ func main() {
 		fmt.Println(v)
 	}
 
-	for k, _ := range bm {
+	for k := range bm {
 		fmt.Println(k)
 	}
 

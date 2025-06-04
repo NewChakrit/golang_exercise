@@ -7,7 +7,7 @@ func main() {
 
 	xi := make([]string, 0, 10)
 
-	for i, _ := range ten {
+	for i := range ten {
 		xi = append(xi, ten[i])
 	}
 
