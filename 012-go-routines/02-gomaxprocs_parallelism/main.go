@@ -2,16 +2,22 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 	"time"
 )
 
 var wg sync.WaitGroup
 
+func init() {
+	// หมายความว่าเราจะใช้ cpu ทั้งหมดในการ run
+	runtime.GOMAXPROCS(runtime.NumCPU())
+}
+
 func main() {
 	wg.Add(2)
-	foo()
-	bar()
+	go foo()
+	go bar()
 	wg.Wait()
 
 }
