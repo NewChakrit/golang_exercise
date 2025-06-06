@@ -22,6 +22,9 @@ func main() {
 		done <- true
 	}()
 
+	// ปัญหา: หากผู้ส่ง (done <- true) พยายามส่งสัญญาณ
+	//แต่ไม่มีผู้รับ (<-done) ที่พร้อมจะรับ ทันที ผู้ส่งจะ บล็อก (block)
+
 	// we block here until done <- true
 	<-done
 	<-done

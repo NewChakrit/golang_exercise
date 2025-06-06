@@ -2,10 +2,7 @@ package main
 
 import (
 	"fmt"
-	"sync"
 )
-
-var wg sync.WaitGroup
 
 func main() {
 	c := make(chan int)
@@ -31,8 +28,13 @@ func main() {
 		close(c)
 	}()
 
-	for n := range c {
+	for n := range c { // ลูปนี้จะ รับค่า n จาก Channel c ไปเรื่อยๆ ตราบใดที่ Channel ยังเปิดอยู่และมีข้อมูลอยู่
 		fmt.Println(n)
 	}
 
 }
+
+// ในโค้ดนี้ Producer แต่ละตัว "ปล่อย" สัญญาณไปยัง done หนึ่งครั้ง
+//และ Coordinator "รอ" รับสัญญาณครบจำนวนที่กำหนด (2 ครั้ง)
+//ก่อนที่จะดำเนินการปิด Channel c นี่คือพฤติกรรมที่คล้ายกับ Barrier
+//หรือการใช้ Semaphore เพื่อนับจำนวนงานที่เสร็จสิ้น
