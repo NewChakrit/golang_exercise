@@ -2,6 +2,6 @@ package main
 
 func main() {
 	// try cml:
-	// golint
+	// golint ./...
 	// to clean up code
 }
